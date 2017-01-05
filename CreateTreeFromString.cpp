@@ -1,3 +1,15 @@
+/*
+This function takes the input from string 
+parentNode childNode link
+eg:
+6 3 L 6 8 R 3 1 L 3 5 R 1 3 X 5 6 X
+
+a) 6 3 L  (Represents that 3 is the left child of 6)
+b) 6 8 R (Represents that 8 is the right child of 6)
+c) 1 3 X (Represents a random pointer from node 1 to node 3)
+
+
+*/
 node * MakeTreeFromString(string s)
 {
     map<int ,node *> map1;
