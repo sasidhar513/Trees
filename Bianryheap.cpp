@@ -1,3 +1,96 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+class MinHeap
+{
+    
+    int size;
+    int mark;
+    int *harr;
+    public:
+   
+        MinHeap(int n);
+    ~MinHeap();
+int getParent(int child)
+{
+    return (child-1)/2;
+}    int getLeft(int i);
+    int getRight(int i);
+    void insert(int n);
+    void deleteElement(int n);
+    int getMin();
+    
+    void show();
+};
+MinHeap::MinHeap(int n)
+{
+    harr=new int[n];
+    mark=0;
+    size=n;     
+}
+MinHeap::~MinHeap()
+{
+    delete[] harr;
+}
+
+int getRight(int parent)
+{
+    return (parent*2+2);
+}
+int getLeft(int parent)
+{
+    return (parent*2+2);
+}
+void MinHeap::insert(int i)
+{   
+    cout<<mark<<" "<<size<<endl;
+    if(mark<=size)
+    {
+        mark++;
+        harr[mark-1]=i;
+        int index=mark-1;
+        cout<<harr[index]<<endl;
+        while(index>0&&harr[getParent(index)]>harr[index])
+        {
+            swap(&harr[index],&harr[getParent(index)]);
+            index  =getParent(index);
+        }
+    }
+    return;
+}
+void MinHeap::show()
+{
+    for(int i=0;i<mark;i++)
+        cout<<harr[i]<<" ";
+}
+void deleteElement(int n)
+{
+    for()
+}
+int main() {
+   int n,tc;
+   cin>>tc;
+   n=tc;
+   MinHeap test(12);
+   test.insert(10);
+   test.insert(9);
+    test.insert(8);
+    test.insert(7);
+    test.insert(6);
+    test.insert(4);
+    test.insert(1);
+test.show();
+   return 0;
+}
 
 // A utility function to swap two elements
 
